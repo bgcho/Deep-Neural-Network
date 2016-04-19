@@ -3,7 +3,7 @@ DNN_sigmoid.py:
 Calculates the deep learning neural network for handwritten digit recognition
 using sigmoid activation function
 Skeleton code from neuralnetworksanddeeplearning.com
-Last modified: 9/10/2015 Bill Byung Gu Cho
+Last modified: 9/10/2015 Bryan Byung Gu Cho
 """
 
 import random

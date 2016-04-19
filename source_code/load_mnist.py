@@ -3,7 +3,7 @@ A module that loads the MNIST image data. load_data() loads the data
 from the mnist.pkl.gz data and returns the training_data,
 validation_data, and test_data.
 Skeleton code from neuralnetworksanddeeplearning.com
-Last modified: 9/10/2016 Bill Byung Gu Cho
+Last modified: 9/10/2016 Bryan Byung Gu Cho
 """
 
 import numpy as np
