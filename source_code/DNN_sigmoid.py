@@ -14,7 +14,11 @@ import numpy as np
 class Network(object):
 
     def __init__(self, sizes):
-        """Initialize the network object. Number of layers, Number of neurons for each layer, wieghts, and biases are initialized."""
+        """
+        Initialize the network object. Number of layers,
+        Number of neurons for each layer, wieghts,
+        and biases are initialized.
+        """
         self.no_layers = len(sizes)
         self.no_neuron = sizes
         self.biases = [np.random.randn(x,1) for x in sizes[1:]]
@@ -23,13 +27,19 @@ class Network(object):
         # self.weights = [np.zeros((x,y)) for (x,y) in zip(sizes[1:], sizes[:-1])]
 
     def feedforward(self, a):
-        """ Return the output of the network given the input ``a`` """
+        """
+        Return the output of the network given the input ``a``
+        """
         for (b,w) in zip(self.biases, self.weights):
             a = sigmoid(np.dot(w,a)+b)
         return a
 
     def SGD(self, training_data, epochs, mini_batch_size, eta, test_data=None):
-        """ Train the network by updating the network recursively using ``update_mini_batch`` and training rate ``eta`` for each mini batch and looping this over the epochs"""
+        """
+        Train the network by updating the network recursively using
+        ``update_mini_batch`` and training rate ``eta`` for each mini batch
+        and looping this over the epochs
+        """
         n = len(training_data)
         for ii in xrange(epochs):
             random.shuffle(training_data)
@@ -46,7 +56,10 @@ class Network(object):
         
 
     def update_mini_batch(self, mini_batch, eta):
-        """ Update the weights and biases based on the Cost function gradient respect to the weights and biases averaged over the mini batch"""
+        """
+        Update the weights and biases based on the Cost function gradient
+        respect to the weights and biases averaged over the mini batch
+        """
         tot_dw = [np.zeros(w.shape) for w in self.weights]
         tot_db = [np.zeros(b.shape) for b in self.biases]
         for (x,y) in mini_batch:
@@ -64,7 +77,11 @@ class Network(object):
         
 
     def backprop(self, x, y):
-        """ Calculate Cost function gradient with respect to the weights and biases given the input x and label y. """
+        """
+        Calculate Cost function gradient with respect to the weights
+        and biases given the input x and label y.
+        """
+
         # feedforward and get the weighted input z and activation output a at each layer
         aw_b = []
         a = [x]
