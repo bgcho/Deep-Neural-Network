@@ -3,7 +3,7 @@ A module that loads the MNIST image data. load_data() loads the data
 from the mnist.pkl.gz data and returns the training_data,
 validation_data, and test_data.
 Skeleton code from neuralnetworksanddeeplearning.com
-Last modified: 9/10/2016 Bryan Byung Gu Cho
+Last modified: 9/10/2016 Ben Byung Gu Cho
 """
 
 import numpy as np
@@ -19,7 +19,14 @@ def load_data():
     return (trainig_data, validation_data, test_data)
 
 def load_data_wrapper():
-    """ The loaded training_data, validation_data, and test_data are modified in a way that eases the neural network process. The input data is recompiled as a list of tuples as [(x_1, y_1), (x_2, y_2) ... (x_n, y_n) ...], where x_n is a 784x1 image array and y_n is a 10x1 label array for the n-th image. For the training_data, length of the list size is 50,000."""
+    """
+    The loaded training_data, validation_data, and test_data are modified
+    in a way that eases the neural network process.
+    The input data is recompiled as a list of tuples as
+    [(x_1, y_1), (x_2, y_2) ... (x_n, y_n) ...],
+    where x_n is a 784x1 image array and y_n is a 10x1 label array for the n-th
+    image. For the training_data, length of the list size is 50,000.
+    """
     tr_d, va_d, te_d = load_data()
     training_inputs = [np.reshape(x, (784,1)) for x in tr_d[0]]
     training_labels = [vectorize_label(x) for x in tr_d[1]]
